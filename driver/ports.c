@@ -300,6 +300,13 @@ __interrupt void PORT2_ISR(void)
 		buzzer = 0;
 		button.all_flags = 0;
 	}
+	
+	// Menu reset
+	if((BUTTON_BACKLIGHT_IS_PRESSED && button.flag.num))
+	{
+		button.all_flags = 0;
+		button.flag.menu_reset = 1;
+	}
 
 	// Generate button click when button was activated
 	if (buzzer)

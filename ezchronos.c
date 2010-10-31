@@ -108,6 +108,7 @@ void configure_ports(void);
 void read_calibration_values(void);
 
 void menu_skip_next(line_t line);
+void menu_reset(void);
 
 
 // *************************************************************************************************
@@ -475,6 +476,15 @@ void wakeup_event(void)
 		// Set display update flag
 		display.flag.full_update = 1;	
 	}
+	else if(button.flag.menu_reset)
+	{
+		button.flag.menu_reset = 0;
+		
+		button.flag.num = 0;
+		
+		menu_reset();
+		display.flag.full_update = 1;
+	}
 	// Process single button press event (after button was released)
 	else if (button.all_flags)
 	{
@@ -827,5 +837,24 @@ void menu_skip_next(line_t line)
 		fptr_lcd_function_line2 = ptrMenu_L2->display_function;
 	}
 
+}
+
+void menu_reset(void)
+{
+	if(menu_L1_position != 0)
+	{
+		fptr_lcd_function_line1(LINE1, DISPLAY_LINE_CLEAR);
+		menu_L1_position = 0;
+		ptrMenu_L1 = menu_L1[0];
+		fptr_lcd_function_line1 = ptrMenu_L1->display_function;
+	}
+	
+	if(menu_L2_position != 0)
+	{
+		fptr_lcd_function_line2(LINE2, DISPLAY_LINE_CLEAR);
+		menu_L2_position = 0;
+		ptrMenu_L2 = menu_L2[0];
+		fptr_lcd_function_line2 = ptrMenu_L2->display_function;
+	}
 }
 

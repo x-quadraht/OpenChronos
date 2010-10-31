@@ -97,6 +97,7 @@ typedef union
     u16 backlight  	: 1;    // Short BACKLIGHT button press
     u16 star_long   : 1;    // Long STAR button press
     u16 num_long   	: 1;    // Long NUM button press
+    u16 menu_reset	: 1;   // Backlight & Num
   } flag;
   u16 all_flags;            // Shortcut to all display flags (for reset)
 } s_button_flags;

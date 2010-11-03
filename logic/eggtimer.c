@@ -460,10 +460,13 @@ void display_eggtimer(u8 line, u8 update)
 		}
 		display_symbol(LCD_SEG_L2_COL1, SEG_ON);
 		display_symbol(LCD_SEG_L2_COL0, SEG_ON);
+		
+		display_symbol(LCD_ICON_RECORD, SEG_ON);
 	}
 	else if (update == DISPLAY_LINE_CLEAR)
 	{
 		// Clean up symbols when leaving function
+		display_symbol(LCD_ICON_RECORD, SEG_OFF);
 	}
 }
 

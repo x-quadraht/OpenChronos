@@ -60,8 +60,8 @@ extern void display_alarm(u8 line, u8 update);
 #define ALARM_ENABLED 		(1u)
 #define ALARM_ON		(2u)
 
-// Keep alarm for 10 on-off cycles
-#define ALARM_ON_DURATION	(10u)
+// Keep alarm for 14 on-off cycles
+#define ALARM_ON_DURATION	(14u)
 
 
 // *************************************************************************************************

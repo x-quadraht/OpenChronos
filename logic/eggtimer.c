@@ -56,6 +56,7 @@
 
 // logic
 #include "menu.h"
+#include "alarm.h"
 
 
 // *************************************************************************************************
@@ -240,7 +241,7 @@ void eggtimer_tick(void)
                                                           stop_eggtimer();
                                                           reset_eggtimer();
                                                           display_eggtimer(LINE2, DISPLAY_LINE_UPDATE_FULL);
-                                                          start_buzzer(100, CONV_MS_TO_TICKS(20), CONV_MS_TO_TICKS(150));
+                                                          sAlarm.state = ALARM_ON;
                                                   }
 	   				} 
 				}
